@@ -1,9 +1,8 @@
 import React from 'react';
 
-function CaughtPokemon() {
-    const date = new Date().toLocaleDateString()
+function CaughtPokemon(props) {
     return <div>
-    <p>Caught 0 Pokemon on </p>{date}
+    <p>Caught 0 Pokemon on </p>{props.date}
     </div>
 }
 
