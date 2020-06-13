@@ -1,11 +1,13 @@
 import React from 'react';
-import Header from './components/Header'
-import Pokedex from './components/Pokedex'
+import Header from './components/Logo'
+import CaughtPokemon from './components/CaughtPokemon'
+import BestPokemon from './components/BestPokemon'
 
 function App() {
   return <div>
     <Header />
-    <Pokedex />
+    <BestPokemon />
+    <CaughtPokemon />
   </div>;
 }
 

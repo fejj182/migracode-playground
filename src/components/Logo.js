@@ -1,12 +1,13 @@
 import React from 'react';
 
-function Header() {
+function Logo() {
+    const appName = "Pokedex";
     return <div>
     <header>
-      <h1>Welcome to the Pokedex</h1>
+      <h1>{appName}</h1>
       <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png" alt="pokemon"></img>
     </header>
   </div>;
 }
 
-export default Header;
+export default Logo;
