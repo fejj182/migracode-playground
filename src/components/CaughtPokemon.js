@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import ResetButton from './ResetButton'
 
 class CaughtPokemon extends Component {
     state = {
         caughtPokemon: 0
+    }
+
+    componentDidMount() {
+        console.log('loaded');
     }
 
     catch = () => {
@@ -35,12 +40,6 @@ class CaughtPokemon extends Component {
         </div>
         )
     }
-}
-
-const ResetButton = (props) => {
-    return (
-        <button onClick={props.reset}>Reset</button>
-    )
 }
 
 export default CaughtPokemon;
