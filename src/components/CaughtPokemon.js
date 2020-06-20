@@ -1,45 +1,13 @@
-import React, { Component } from 'react';
-import ResetButton from './ResetButton'
+import React from 'react';
+import Counter from "./Counter"
 
-class CaughtPokemon extends Component {
-    state = {
-        caughtPokemon: 0
-    }
-
-    componentDidMount() {
-        console.log('loaded');
-    }
-
-    catch = () => {
-        this.setState(prevState => {
-            return {
-                caughtPokemon: prevState.caughtPokemon + 1
-            }
-        })
-    }
-
-    reset = () => {
-        this.setState(() => {
-            return {
-                caughtPokemon: 0
-            }
-        })
-    }
-    
-    render() {
-        return (
-        <div>
-            <p>Caught {this.state.caughtPokemon} Pokemon on </p>{this.props.date}
-            <button onClick={this.catch}>Catch</button>
-
-            {this.state.caughtPokemon > 0 
-            ? <ResetButton reset={this.reset}/> 
-            : null
-            }
-            
-        </div>
-        )
-    }
+function CaughtPokemon(){
+    const date = new Date().toLocaleDateString();
+    return (
+    <div>
+        <div> <Counter /></div>
+        {date}
+    </div>
+    ) 
 }
-
 export default CaughtPokemon;
