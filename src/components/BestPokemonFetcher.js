@@ -15,10 +15,11 @@ function BestPokemonFetcher(props) {
   if (!bestPokemon) {
     return null
   } else {
-    console.log(bestPokemon.abilities)
+    const abilities = bestPokemon.abilities.map(item => {
+      return item.ability.name
+    })
     return <BestPokemon 
-      pokemon={bestPokemon} 
-      abilities={bestPokemon.abilities}
+      abilities={abilities}
     />
   }
   
@@ -51,17 +52,17 @@ class BestPokemon extends Component {
       <>
         <h3>Names</h3>
         <ul>
-          {this.state.pokemonNames.map((name, index) => {
-            return (
-              <li key={index}>{name}</li>
-            )
-          })}
+            {this.state.pokemonNames.map((name, index) => {
+              return (
+                <li key={index}>{name}</li>
+              )
+            })}
         </ul>
         <h3>Abilities</h3>
         <ul>
-          {this.props.abilities.map((ability, index) => {
+          {this.props.abilities.map((name, index) => {
             return (
-              <li key={index}>{ability.ability.name}</li>
+              <li key={index}>{name}</li>
             )
           })}
         </ul>
