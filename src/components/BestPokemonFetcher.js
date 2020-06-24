@@ -1,4 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, Component } from 'react';
+
+function BestPokemonFetcher(props) {
+  let [bestPokemon, setBestPokemon] = useState(null);
+
+  useEffect(() => {
+    console.log(props.abilities)
+    fetch(
+      'https://pokeapi.co/api/v2/pokemon/1/'
+    )
+      .then(res => res.json())
+      .then(data => setBestPokemon(data));
+  }, [props]);
+
+  if (!bestPokemon) {
+    return null
+  } else {
+    console.log(bestPokemon.abilities)
+    return <BestPokemon 
+      pokemon={bestPokemon} 
+      abilities={bestPokemon.abilities}
+    />
+  }
+  
+}
 
 class BestPokemon extends Component {
   state = {
@@ -35,9 +59,9 @@ class BestPokemon extends Component {
         </ul>
         <h3>Abilities</h3>
         <ul>
-          {this.props.abilities.map((name, index) => {
+          {this.props.abilities.map((ability, index) => {
             return (
-              <li key={index}>{name}</li>
+              <li key={index}>{ability.ability.name}</li>
             )
           })}
         </ul>
@@ -49,4 +73,4 @@ class BestPokemon extends Component {
   }
 }
 
-export default BestPokemon;
+export default BestPokemonFetcher;
