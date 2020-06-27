@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './components/Logo'
 import CaughtPokemon from './components/CaughtPokemon'
-import BestPokemonSelector from './components/BestPokemonSelector'
+import BestPokemonSelector from './components/BestPokemon/BestPokemonSelector'
 import './App.css';
 
 function App() {
