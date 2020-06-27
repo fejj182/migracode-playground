@@ -1,16 +1,34 @@
 import React, { useState, useEffect, Component } from 'react';
 
+function BestPokemonSelector() {
+  const [pokemonId, setPokemonId] = useState(null);
+
+  function handleBulbasaurClick() {
+    setPokemonId(1);
+  }
+  function handleCharmanderClick() {
+    setPokemonId(4);
+  }
+
+  return (
+    <div>
+      <button onClick={handleBulbasaurClick}>Fetch Bulbasaur</button>
+      <button onClick={handleCharmanderClick}>Fetch Charmander</button>
+      {pokemonId ? <BestPokemonFetcher pokemonId={pokemonId} /> : null}
+    </div>
+  );
+}
+
 function BestPokemonFetcher(props) {
   let [bestPokemon, setBestPokemon] = useState(null);
 
   useEffect(() => {
-    console.log(props.abilities)
     fetch(
-      'https://pokeapi.co/api/v2/pokemon/1/'
+      `https://pokeapi.co/api/v2/pokemon/${props.pokemonId}/`
     )
       .then(res => res.json())
       .then(data => setBestPokemon(data));
-  }, [props]);
+  }, [props.pokemonId]);
 
   if (!bestPokemon) {
     return null
@@ -22,7 +40,6 @@ function BestPokemonFetcher(props) {
       abilities={abilities}
     />
   }
-  
 }
 
 class BestPokemon extends Component {
@@ -50,14 +67,6 @@ class BestPokemon extends Component {
     <div>
       {this.state.isLoading ? <span>Loading...</span> :
       <>
-        <h3>Names</h3>
-        <ul>
-            {this.state.pokemonNames.map((name, index) => {
-              return (
-                <li key={index}>{name}</li>
-              )
-            })}
-        </ul>
         <h3>Abilities</h3>
         <ul>
           {this.props.abilities.map((name, index) => {
@@ -74,4 +83,4 @@ class BestPokemon extends Component {
   }
 }
 
-export default BestPokemonFetcher;
+export default BestPokemonSelector;
