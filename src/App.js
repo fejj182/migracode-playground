@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './components/Logo'
-import CaughtPokemon from './components/CaughtPokemon'
+import CaughtPokemon from './components/CaughtPokemon/CaughtPokemon'
 import BestPokemonSelector from './components/BestPokemon/BestPokemonSelector'
 import './App.css';
 

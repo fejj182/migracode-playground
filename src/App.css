@@ -11,6 +11,15 @@
   height: 100px;
 }
 
+#pokemon-catcher input {
+  display: block;
+  margin: 0.5em;
+}
+
+#pokemon-catcher button {
+  margin: 0.5em;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

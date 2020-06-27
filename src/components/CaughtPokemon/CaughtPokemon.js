@@ -1,11 +1,11 @@
 import React from 'react';
-import Counter from "./Counter"
+import PokemonCatcher from "./PokemonCatcher"
 
 function CaughtPokemon(){
     const date = new Date().toLocaleDateString();
     return (
     <div>
-        <div> <Counter /></div>
+        <div> <PokemonCatcher /></div>
         {date}
     </div>
     ) 
